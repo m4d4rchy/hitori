@@ -1,0 +1,75 @@
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Game Rules</title>
+	<link rel="stylesheet" type="text/css" href="css/myclass.css">
+</head>
+<body>
+	<h1>Hitori Rules</h1>
+	<br>
+	<div class="page">
+		<br>
+		<a href="index.html">Back to the game</a>
+		<br>
+		<br>
+		<p>Hitori is a japanese puzzle logic game played with a grid of squares <br>
+		or cells, with each cell containing a number. <br> 
+		<br>
+		The purpose of the game is to "eliminate" cells, by coloring them in black, 
+		until there are no duplicates numbers in any row or column. <br>
+		</p>
+		<br>
+		<p>To transform the grid, it's necessary to follow these three rules :</p>
+		<ul>
+			<li>no row or column can have more than one occurrence of any given number</li>
+			<li>'eliminated' cells cannot be adjacent, although they can be diagonal to one another</li>
+			<li>the remaining numbered cells must be all connected to each other, horizontally or vertically</li>
+		</ul>
+		<br>
+		<p>Example of completed grid:</p>
+		<br>
+		<table id="tableau" align="center">
+				<tr>
+					<td>3</td>
+					<td class="highlight">3</td>
+					<td>4</td>
+					<td class="highlight">4</td>
+					<td>5</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>5</td>
+					<td>1</td>
+					<td>3</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="highlight">3</td>
+					<td>4</td>
+					<td>2</td>
+					<td>1</td>
+					<td class="highlight">4</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>3</td>
+					<td class="highlight">5</td>
+					<td>4</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td class="highlight">5</td>
+					<td>2</td>
+					<td>5</td>
+					<td class="highlight">4</td>
+					<td>3</td>
+				</tr>
+			</table>
+			<br>
+	</div>
+</body>
+<br>
+<footer>Website designed by Yassine Benmessahel. <a href="https://github.com/gameeklab">Check my other projects</a></footer>
+</html>
