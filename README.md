@@ -2,7 +2,7 @@
 
 Hitori Game Website
 
-A simple hitori game made in JavaScript.
+A simple hitori game made in JavaScript and HTML.
 
 Their is two mode in this game:
 
