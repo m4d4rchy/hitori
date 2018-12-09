@@ -1,0 +1,79 @@
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Hitori Game</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/myclass.css">
+</head>
+<body>
+	<h1>Hitori</h1>
+	<br>
+	<div class="page">
+		<br>
+		<a href="#">How to play?</a>
+		<br>
+		<br>
+		<table id="tableau" border="1" align="center">
+			<tr>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+		</table>
+		<br>
+		<div style="text-align: center;">
+			<span id="timer"></span>
+			<br>
+			<br>
+			<span id="ptexte"></span>
+			<br>
+			<br>
+			<input type="radio" name="mode" checked> Semi-Random<br>
+			<input type="radio" name="mode"> Full-Random<br>
+			<br>
+			<button id="new">New</button>
+			<button id="reset">Reset</button>
+			<button id="pause">Pause</button>
+			<button id="check">Check</button>
+			<input type="file" id="map" accept=".doc,.txt,.docx,">
+			<button id="import">Import</button>
+		</div>
+		<br>
+	</div>
+	<script src="js/game.js"></script>
+</body>
+<br>
+<footer>Website designed by Yassine Benmessahel. <a href="https://github.com/gameeklab">Check my other projects</a></footer>
+</html>
