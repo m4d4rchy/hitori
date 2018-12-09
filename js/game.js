@@ -1,4 +1,3 @@
-//full random
 var map = [[[5, 4, 4, 3, 4],
 	    [3, 4, 2, 5, 4],
 	    [2, 5, 5, 1, 2],
@@ -58,10 +57,6 @@ var timer = setInterval(function() {
 		}
 	}
 	document.getElementById("timer").innerHTML = "Time: " + time[0] + "d " + time[1] + "h " + time[2] + "m " + time[3] + "s";
-}, 1000);
-
-var checkradio = setInterval(function() {
-	
 }, 1000);
 
 $("#tableau:has(td)").click(function(e) {
@@ -131,7 +126,7 @@ $("#pause").click(function() {
 });
 
 $("#import").click(function() {
-	var map = document.getElementById("map", "UTF-8").files;
+	var map = document.getElementById("map").files;
 	var txt = readFile(map[0]);
 });
 
