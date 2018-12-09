@@ -57,7 +57,7 @@ var timer = setInterval(function() {
 			time[0] == time[0] + 1;
 		}
 	}
-	document.getElementById("timer").innerHTML = "Time: " + time[0] + "j " + time[1] + "h " + time[2] + "m " + time[3] + "s";
+	document.getElementById("timer").innerHTML = "Time: " + time[0] + "d " + time[1] + "h " + time[2] + "m " + time[3] + "s";
 }, 1000);
 
 var checkradio = setInterval(function() {
@@ -81,7 +81,7 @@ $("#check").click(function() {
 	if (pause == 0) {
 		if (radios[1].checked) {
 			if (getWinFR() == true) {
-				alert("Well Played!");
+				alert("Well Played!\nYou finished in: " + time[0] + "d " + time[1] + "h " + time[2] + "m " + time[3] + "s");
 				location.reload();
 			}
 			else
@@ -89,7 +89,7 @@ $("#check").click(function() {
 		}
 		else {
 			if (getWinSR() == true) {
-				alert("Well Played!");
+				alert("Well Played!\nYou finished in: " + time[0] + "d " + time[1] + "h " + time[2] + "m " + time[3] + "s");
 				location.reload();
 			}
 			else
@@ -131,8 +131,8 @@ $("#pause").click(function() {
 });
 
 $("#import").click(function() {
-	var map = document.getElementById("map", "UTF-8");
-	var txt = readFile(map);
+	var map = document.getElementById("map", "UTF-8").files;
+	var txt = readFile(map[0]);
 });
 
 function resetGridSR()
@@ -193,13 +193,30 @@ function cellClickSR(clickedcell, row, col, cellnum)
 
 function readFile(readfile)
 {
+	var row = 0;
+	var col = 0;
+	var cellnum = 0;
 	var reader = new FileReader();
+	var count = 0;
 
 	reader.onload = function(e) { 
 		var contents = e.target.result;
-	  alert( "Got the file.\n" 
-		+ "starts with: " + contents.substr(1, contents.indexOf("n"))
-	  );  
+		time = [0, 0, 0, -1];
+		while (count != (size * size)) {
+			$("#tableau td").eq(count).html(contents[count]);
+			count = count + 1;
+		}
+		count = count + 1;
+		while (row != size) {
+			while (col != size) {
+				solve[random][row][col] = parseInt(contents[count]);
+				col = col + 1;
+				cellnum = cellnum + 1;
+				count = count + 1;
+			}
+			col = 0;
+			row = row + 1;
+		} 
 	}
 	reader.readAsText(readfile);
 }
@@ -216,7 +233,6 @@ function getWinFR()
 			col = 0;
 		}
 		if (board[row][col] != -1 && checkNum(board[row][col], row, col) == false) {
-			console.log("yolo", board[row][col], row, col);
 			return (false);
 		}
 		col = col + 1;
@@ -234,7 +250,6 @@ function checkNum(num, row, col)
 		if (colbis == col)
 			colbis = colbis + 1
 		if (num == board[rowbis][colbis] && num != -1) {
-			console.log("here1", num, board[rowbis][colbis], rowbis, colbis);
 			return (false);
 		}
 		colbis = colbis + 1;
@@ -244,9 +259,7 @@ function checkNum(num, row, col)
 	while (rowbis < size) {
 		if (rowbis == row)
 			rowbis = rowbis + 1;
-		console.log("yes", rowbis, colbis);
 		if (rowbis < size && num == board[rowbis][colbis] && num != -1) {
-			console.log("here2", num, board[rowbis][colbis], rowbis, colbis);
 			return (false);
 		}
 		rowbis = rowbis + 1;
@@ -269,7 +282,6 @@ function getWinSR()
 		col = 0;
 		row = row + 1;
 	}
-	console.log(same);
 	if (same == (size * size))
 		return(true);
 	else
