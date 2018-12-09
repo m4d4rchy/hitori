@@ -78,40 +78,45 @@ $("#tableau:has(td)").click(function(e) {
 });
 
 $("#check").click(function() {
-	if (radios[1].checked) {
-		if (getWinFR() == true) {
-			alert("Well Played!");
-			location.reload();
+	if (pause == 0) {
+		if (radios[1].checked) {
+			if (getWinFR() == true) {
+				alert("Well Played!");
+				location.reload();
+			}
+			else
+				time[3] = time[3] + 15;
 		}
-		else
-			time[3] = time[3] + 15;
-	}
-	else {
-		if (getWinSR() == true) {
-			alert("Well Played!");
-			location.reload();
+		else {
+			if (getWinSR() == true) {
+				alert("Well Played!");
+				location.reload();
+			}
+			else
+				time[3] = time[3] + 15;
 		}
-		else
-			time[3] = time[3] + 15;
 	}
 });
 
 $("#reset").click(function() {
-	$("td").removeClass("highlight");
-	time[3] = -1;
-	time[2] = 0;
-	time[1] = 0;
-	time[0] = 0;
-	if (radios[1].checked) {
-
-	}
-	else {
-
+	if (pause == 0) {
+		$("td").removeClass("highlight");
+		time[3] = -1;
+		time[2] = 0;
+		time[1] = 0;
+		time[0] = 0;
+		if (radios[1].checked) {
+			resetGridFR();
+		}
+		else {
+			resetGridSR();
+		}
 	}
 });
 
 $("#new").click(function() {
-	location.reload();
+	if (pause == 0)
+		location.reload();
 });
 
 $("#pause").click(function() {
@@ -129,6 +134,38 @@ $("#import").click(function() {
 	var map = document.getElementById("map", "UTF-8");
 	var txt = readFile(map);
 });
+
+function resetGridSR()
+{
+	var row = 0;
+	var col = 0;
+
+	while (row != size) {
+		while (col != size) {
+			board[row][col] = 0;
+			col = col + 1;
+		}
+		col = 0;
+		row = row + 1;
+	}
+}
+
+function resetGridFR()
+{
+	var row = 0;
+	var col = 0;
+	var cellnum = 0;
+
+	while (row != size) {
+		while (col != size) {
+			board[row][col] = parseInt($("#tableau td").eq(cellnum).html());
+			col = col + 1;
+			cellnum = cellnum + 1;
+		}
+		col = 0;
+		row = row + 1;
+	}
+}
 
 function cellClickFR(clickedcell, row, col, cellnum) 
 {
