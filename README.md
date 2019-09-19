@@ -4,7 +4,7 @@ Hitori Game Website
 
 A simple hitori game made in JavaScript and HTML.
 
-Their is two mode in this game:
+Their is two modes in this game:
 
 Semi-random = Three grids already written in the code and one is taken randomly.
 
