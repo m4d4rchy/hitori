@@ -20,6 +20,7 @@ The objective is to transform the grid to a state wherein all three following ru
 Game modes
 ------------------
 Semi-random: Three grids already written in the code and one is taken randomly.
+
 Full-random: Every cells of the grid are generated randomly (My algorithm is very basic so you could get unachievable grid)
 
 Import custom grid
